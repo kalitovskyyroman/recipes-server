@@ -5,6 +5,7 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
+        "start": "node index.js",
         "dev": "nodemon index.js"
     },
     "repository": {
@@ -15,7 +16,8 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "express": "^4.17.3"
+        "express": "^4.17.3",
+        "mongoose": "^6.2.3"
     },
     "devDependencies": {
         "nodemon": "^2.0.15"
