@@ -7,7 +7,7 @@ import {
     updateRoleController,
 } from "../controllers/role.controller.js";
 import { roleSchema } from "./schemas/role.schema.js";
-import { validateRequestSchema } from "../middleware/validates/role.validate.js";
+import { validateRequestSchema } from "../middleware/validates/validate.js";
 
 const path = "/roles";
 
