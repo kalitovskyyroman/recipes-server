@@ -1,8 +1,17 @@
 import Role from "../models/Users/Role.js";
+import { DEFAULT_ROLE } from "./config.js";
 
 const createRole = async (role) => {
     const createdRole = await Role.create(role);
     return createdRole;
+};
+
+const createDefaultRole = async () => {
+    const isExist = await Role.findOne({ name: DEFAULT_ROLE });
+
+    if (!isExist) {
+        await Role.create({ name: DEFAULT_ROLE });
+    }
 };
 
 const getRoles = async () => {
@@ -27,4 +36,4 @@ const updateRole = async (name, newName) => {
     return !!role.modifiedCount;
 };
 
-export { createRole, getRoles, getRole, deleteRole, updateRole };
+export { createRole, getRoles, getRole, deleteRole, updateRole, createDefaultRole };
