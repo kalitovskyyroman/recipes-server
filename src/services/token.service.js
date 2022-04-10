@@ -12,4 +12,13 @@ const saveToken = async (userId, refreshToken) => {
     return token;
 };
 
-export { saveToken };
+const removeToken = async (token) => {
+    await Token.deleteOne({ refreshToken: token });
+};
+
+const findToken = async (refreshToken) => {
+    const token = await Token.findOne({ refreshToken });
+    return token;
+};
+
+export { saveToken, removeToken, findToken };

@@ -1,9 +1,11 @@
 import { body } from "express-validator";
 
-const schema = [
+const registerSchema = [
     body("name").exists(),
     body("email").exists().isEmail(),
-    body("password").exists().isLength({ min: 5 }).not().isNumeric().withMessage("name must be a String"),
+    body("password").exists().isLength({ min: 5 }),
 ];
 
-export { schema as userSchema };
+const loginSchema = [body("email").exists().isEmail(), body("password").exists().isLength({ min: 5 })];
+
+export { registerSchema, loginSchema };

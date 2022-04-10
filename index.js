@@ -4,6 +4,7 @@ import roleRouter from "./src/routes/Role.js";
 import userRouter from "./src/routes/user.router.js";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 config();
 
@@ -13,6 +14,12 @@ const path = "/api";
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(
+    cors({
+        credentials: true,
+        origin: process.env.CLIENT_URL,
+    })
+);
 
 app.use(path, roleRouter);
 app.use(path, userRouter);
