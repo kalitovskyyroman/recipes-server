@@ -1,3 +1,5 @@
+// import IUser from "../interfaces/IUser";
+
 const getUserDto = (model) => ({
     id: model._id,
     name: model.name,

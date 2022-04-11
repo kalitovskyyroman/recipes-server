@@ -5,17 +5,19 @@ import {
     getRoleController,
     getRolesController,
     updateRoleController,
-} from "../controllers/role.controller.js";
-import { roleSchema } from "./schemas/role.schema.js";
-import { validateRequestSchema } from "../middleware/validates/validate.js";
+} from "../controllers/role.controller";
+import { validateRequestSchema } from "../middleware/validates/validate";
+import { roleSchema } from "./schemas/role.schema";
 
 const path = "/roles";
 
-const router = new Router();
+const router = Router();
 
+// router.post(path, roleSchema, validateRequestSchema, createRoleController);
+// router.put(`${path}/:name`, roleSchema, validateRequestSchema, updateRoleController);
 router.post(path, roleSchema, validateRequestSchema, createRoleController);
 router.get(path, getRolesController);
-router.put(`${path}/:name`, roleSchema, validateRequestSchema, updateRoleController);
+router.put(`${path}/:name`, updateRoleController);
 router.get(`${path}/:name`, getRoleController);
 router.delete(`${path}/:name`, deleteRoleController);
 
