@@ -1,10 +1,10 @@
 import ITimestamps from "./ITimestamps";
-import { Types } from "mongoose";
+import IRole from "./IRole";
 
 interface IUser extends ITimestamps {
     name: string;
     email: string;
-    role: Types.ObjectId;
+    role: IRole;
     password: string;
 }
 

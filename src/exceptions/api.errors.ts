@@ -15,6 +15,10 @@ class ApiError extends Error {
     static BadRequest(message: string = "Something went wrong", errors: ValidationError[] = []) {
         return new ApiError(ApiErrorEnum.BadRequest, message, errors);
     }
+
+    static UnauthorizedError(message: string = "Unauthorized", errors: ValidationError[] = []) {
+        return new ApiError(ApiErrorEnum.UnauthorizedError, message, errors);
+    }
 }
 
 export default ApiError;

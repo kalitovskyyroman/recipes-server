@@ -1,8 +1,9 @@
-import mongoose from "mongoose";
+import { Schema, model } from "mongoose";
+import IToken from "../../interfaces/IToken";
 
-const Token = new mongoose.Schema({
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+const Token = new Schema<IToken>({
+    user: { type: Schema.Types.ObjectId, ref: "User" },
     refreshToken: { type: String, required: true },
 });
 
-export default mongoose.model("Token", Token);
+export default model<IToken>("Token", Token);

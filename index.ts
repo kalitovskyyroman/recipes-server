@@ -1,7 +1,8 @@
 import express, { Express, Request, Response } from "express";
 import mongoose from "mongoose";
 import roleRouter from "./src/routes/role.router";
-// import userRouter from "./src/routes/user.router.js";
+import authRouter from "./src/routes/auth.router";
+import userRouter from "./src/routes/user.router";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -23,11 +24,12 @@ app.use(
 );
 
 app.use(path, roleRouter);
+app.use(path, authRouter);
+app.use(path, userRouter);
 app.use(errorMiddleware);
-// app.use(path, userRouter);
 
 app.get("/", (req: Request, res: Response) => {
-    res.send("Express + TypeScript Server");
+    res.send("Server works...");
 });
 
 const startApp = async () => {
