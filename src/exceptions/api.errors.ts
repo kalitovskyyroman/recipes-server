@@ -16,6 +16,10 @@ class ApiError extends Error {
         return new ApiError(ApiErrorEnum.BadRequest, message, errors);
     }
 
+    static NotFound(message: string = "Not found", errors: ValidationError[] = []) {
+        return new ApiError(ApiErrorEnum.NotFound, message, errors);
+    }
+
     static UnauthorizedError(message: string = "Unauthorized", errors: ValidationError[] = []) {
         return new ApiError(ApiErrorEnum.UnauthorizedError, message, errors);
     }

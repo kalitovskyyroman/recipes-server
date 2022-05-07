@@ -32,13 +32,13 @@ const getRole = async (name: string) => {
     if (role) {
         return role;
     }
-    throw ApiError.BadRequest("Role not found");
+    throw ApiError.NotFound("Role not found");
 };
 
 const deleteRole = async (name: string) => {
     const role = await Role.deleteOne({ name });
     if (!role.deletedCount) {
-        throw ApiError.BadRequest("Role not found");
+        throw ApiError.NotFound("Role not found");
     }
 };
 
@@ -48,7 +48,7 @@ const updateRole = async (name: string, newName: string) => {
         if (!!role.modifiedCount) {
             return !!role.modifiedCount;
         }
-        throw ApiError.BadRequest("Role not found");
+        throw ApiError.NotFound("Role not found");
     } catch (error) {
         throw ApiError.BadRequest("Role already exist");
     }

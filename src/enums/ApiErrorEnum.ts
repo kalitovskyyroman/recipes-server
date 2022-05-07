@@ -1,5 +1,6 @@
 enum ApiErrorEnum {
-    BadRequest = 404,
+    BadRequest = 400,
+    NotFound = 404,
     UnauthorizedError = 401,
     ServerError = 500,
 }

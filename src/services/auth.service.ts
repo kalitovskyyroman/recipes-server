@@ -31,13 +31,13 @@ const login = async (email: string, password: string) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-        throw ApiError.BadRequest("User not found");
+        throw ApiError.BadRequest("Incorrect email");
     }
 
     const role = await Role.findById(user.role._id);
 
     if (!role) {
-        throw ApiError.BadRequest("Role not found");
+        throw ApiError.NotFound("Role not found");
     }
 
     user.role = role;
@@ -69,7 +69,7 @@ const refresh = async (refreshToken: string) => {
     const user = await User.findById(userData.id);
 
     if (!user) {
-        throw ApiError.BadRequest("User not found");
+        throw ApiError.NotFound("User not found");
     }
 
     const userDto = getUserDto(user);
