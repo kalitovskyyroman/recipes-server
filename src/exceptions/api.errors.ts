@@ -23,6 +23,10 @@ class ApiError extends Error {
     static UnauthorizedError(message: string = "Unauthorized", errors: ValidationError[] = []) {
         return new ApiError(ApiErrorEnum.UnauthorizedError, message, errors);
     }
+
+    static AccessDenied(message: string = "Access denied", errors: ValidationError[] = []) {
+        return new ApiError(ApiErrorEnum.AccessDenied, message, errors)
+    }
 }
 
 export default ApiError;

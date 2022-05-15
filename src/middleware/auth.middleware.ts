@@ -12,12 +12,8 @@ const authMiddleware = (req: Request, res: Response, next: NextFunction) => {
             return next(ApiError.UnauthorizedError());
         }
 
-        // if (!accessToken) {
-        //     return next(ApiError.UnauthorizedError());
-        // }
-
         const userData = validateAccessToken(accessToken);
-        console.log("userData: ", userData);
+
         if (!userData) {
             return next(ApiError.UnauthorizedError());
         }

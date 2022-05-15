@@ -2,8 +2,8 @@ import jwt from "jsonwebtoken";
 import IUserDto from "../interfaces/IUserDto";
 
 const generateTokens = (payload: any) => ({
-    accessToken: jwt.sign(payload, process.env.JWT_ACCESS_SECRET as string, { expiresIn: "10s" }),
-    refreshToken: jwt.sign(payload, process.env.JWT_REFRESH_SECRET as string, { expiresIn: "30s" }),
+    accessToken: jwt.sign(payload, process.env.JWT_ACCESS_SECRET as string, { expiresIn: "10m" }),
+    refreshToken: jwt.sign(payload, process.env.JWT_REFRESH_SECRET as string, { expiresIn: "30m" }),
 });
 
 const validateAccessToken = (token: string) => {

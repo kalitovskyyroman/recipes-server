@@ -72,6 +72,14 @@ const refresh = async (refreshToken: string) => {
         throw ApiError.NotFound("User not found");
     }
 
+    const role = await Role.findById(user.role._id);
+
+    if (!role) {
+        throw ApiError.NotFound("Role not found");
+    }
+
+    user.role = role;
+
     const userDto = getUserDto(user);
     const tokens = generateTokens(userDto);
 
