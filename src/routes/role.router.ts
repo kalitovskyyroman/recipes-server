@@ -13,8 +13,6 @@ const path = "/roles";
 
 const router = Router();
 
-// router.post(path, roleSchema, validateRequestSchema, createRoleController);
-// router.put(`${path}/:name`, roleSchema, validateRequestSchema, updateRoleController);
 router.post(path, roleSchema, validateRequestSchema, createRoleController);
 router.get(path, getRolesController);
 router.put(`${path}/:name`, updateRoleController);

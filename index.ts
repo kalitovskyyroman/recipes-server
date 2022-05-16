@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import roleRouter from "./src/routes/role.router";
 import authRouter from "./src/routes/auth.router";
 import userRouter from "./src/routes/user.router";
+import ingredientsTypeRouter from "./src/routes/ingredients/type.router";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
@@ -26,6 +27,7 @@ app.use(
 app.use(path, roleRouter);
 app.use(path, authRouter);
 app.use(path, userRouter);
+app.use(path, ingredientsTypeRouter);
 app.use(errorMiddleware);
 
 app.get("/", (req: Request, res: Response) => {
